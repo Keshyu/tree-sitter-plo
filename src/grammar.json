@@ -48,6 +48,10 @@
         },
         {
           "type": "STRING",
+          "value": "of"
+        },
+        {
+          "type": "STRING",
           "value": "from"
         },
         {
@@ -90,7 +94,7 @@
     },
     "punctuation": {
       "type": "PATTERN",
-      "value": "[\\.:,;()]"
+      "value": "[\\.:,;/()]"
     }
   },
   "extras": [

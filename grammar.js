@@ -22,11 +22,11 @@ module.exports = grammar({
       'is', 'has', 'does', 'must',
       'do',
 
-      'from', 'to', 'in', 'outof', 'at',
+      'of', 'from', 'to', 'in', 'outof', 'at',
       'into', 'upto', 'downto',
       'as',
     ),
     name: $ => /\w([\w-]*\w)?/,
-    punctuation: $ => /[\.:,;()]/,
+    punctuation: $ => /[\.:,;/()]/,
   }
 });

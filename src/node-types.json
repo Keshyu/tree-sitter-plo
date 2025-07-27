@@ -77,6 +77,10 @@
     "named": true
   },
   {
+    "type": "of",
+    "named": false
+  },
+  {
     "type": "outof",
     "named": false
   },
