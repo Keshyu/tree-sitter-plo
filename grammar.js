@@ -19,7 +19,8 @@ module.exports = grammar({
       $.punctuation,
     )),
     keyword: $ => choice(
-      'is', 'has', 'must',
+      'is', 'has', 'does', 'must',
+      'do',
 
       'from', 'to', 'in', 'outof', 'at',
       'into', 'upto', 'downto',

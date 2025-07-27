@@ -36,7 +36,15 @@
         },
         {
           "type": "STRING",
+          "value": "does"
+        },
+        {
+          "type": "STRING",
           "value": "must"
+        },
+        {
+          "type": "STRING",
+          "value": "do"
         },
         {
           "type": "STRING",
@@ -69,6 +77,10 @@
         {
           "type": "STRING",
           "value": "downto"
+        },
+        {
+          "type": "STRING",
+          "value": "as"
         }
       ]
     },

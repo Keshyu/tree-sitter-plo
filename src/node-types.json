@@ -29,7 +29,19 @@
     }
   },
   {
+    "type": "as",
+    "named": false
+  },
+  {
     "type": "at",
+    "named": false
+  },
+  {
+    "type": "do",
+    "named": false
+  },
+  {
+    "type": "does",
     "named": false
   },
   {
