@@ -16,17 +16,25 @@ module.exports = grammar({
     source_file: $ => repeat(choice(
       $.keyword,
       $.name,
+      $.string,
+      $.call,
       $.punctuation,
     )),
     keyword: $ => choice(
       'is', 'has', 'does', 'must',
       'do',
 
-      'of', 'from', 'to', 'in', 'outof', 'at',
-      'into', 'upto', 'downto',
-      'as',
+      'of', 'at', 'as', 'by',
+      'from', 'to',
+      'in', 'out', 'into', 'outof',
+      'upto', 'downto',
     ),
     name: $ => /\w([\w-]*\w)?/,
+    string: $ => /"[^\n"]*"/,
+    call: $ => seq(
+      field('func', $.name),
+      token.immediate('(')
+    ),
     punctuation: $ => /[\.:,;/()]/,
   }
 });

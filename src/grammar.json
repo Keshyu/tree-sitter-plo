@@ -18,6 +18,14 @@
           },
           {
             "type": "SYMBOL",
+            "name": "string"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "call"
+          },
+          {
+            "type": "SYMBOL",
             "name": "punctuation"
           }
         ]
@@ -52,6 +60,18 @@
         },
         {
           "type": "STRING",
+          "value": "at"
+        },
+        {
+          "type": "STRING",
+          "value": "as"
+        },
+        {
+          "type": "STRING",
+          "value": "by"
+        },
+        {
+          "type": "STRING",
           "value": "from"
         },
         {
@@ -64,15 +84,15 @@
         },
         {
           "type": "STRING",
-          "value": "outof"
-        },
-        {
-          "type": "STRING",
-          "value": "at"
+          "value": "out"
         },
         {
           "type": "STRING",
           "value": "into"
+        },
+        {
+          "type": "STRING",
+          "value": "outof"
         },
         {
           "type": "STRING",
@@ -81,16 +101,36 @@
         {
           "type": "STRING",
           "value": "downto"
-        },
-        {
-          "type": "STRING",
-          "value": "as"
         }
       ]
     },
     "name": {
       "type": "PATTERN",
       "value": "\\w([\\w-]*\\w)?"
+    },
+    "string": {
+      "type": "PATTERN",
+      "value": "\"[^\\n\"]*\""
+    },
+    "call": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "func",
+          "content": {
+            "type": "SYMBOL",
+            "name": "name"
+          }
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "("
+          }
+        }
+      ]
     },
     "punctuation": {
       "type": "PATTERN",
