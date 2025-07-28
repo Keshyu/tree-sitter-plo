@@ -80,11 +80,27 @@
         },
         {
           "type": "STRING",
+          "value": "on"
+        },
+        {
+          "type": "STRING",
+          "value": "off"
+        },
+        {
+          "type": "STRING",
           "value": "from"
         },
         {
           "type": "STRING",
           "value": "to"
+        },
+        {
+          "type": "STRING",
+          "value": "upto"
+        },
+        {
+          "type": "STRING",
+          "value": "downto"
         },
         {
           "type": "STRING",
@@ -101,14 +117,6 @@
         {
           "type": "STRING",
           "value": "outof"
-        },
-        {
-          "type": "STRING",
-          "value": "upto"
-        },
-        {
-          "type": "STRING",
-          "value": "downto"
         }
       ]
     },

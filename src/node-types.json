@@ -175,6 +175,14 @@
     "named": false
   },
   {
+    "type": "off",
+    "named": false
+  },
+  {
+    "type": "on",
+    "named": false
+  },
+  {
     "type": "out",
     "named": false
   },

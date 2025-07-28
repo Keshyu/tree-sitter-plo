@@ -26,9 +26,9 @@ module.exports = grammar({
       'be', 'do',
 
       'of', 'at', 'as', 'by',
-      'from', 'to',
+      'on', 'off',
+      'from', 'to', 'upto', 'downto',
       'in', 'out', 'into', 'outof',
-      'upto', 'downto',
     ),
     name: $ => /\w([\w-]*\w)?/,
     string: $ => seq(
