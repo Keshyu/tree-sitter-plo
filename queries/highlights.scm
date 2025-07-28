@@ -9,3 +9,4 @@
   func: (name) @function
   "(" @punctuation)
 (punctuation) @punctuation
+(comment) @comment

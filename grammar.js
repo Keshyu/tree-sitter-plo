@@ -20,6 +20,7 @@ module.exports = grammar({
       $.string,
       $.call,
       $.punctuation,
+      $.comment,
     ),
     keyword: $ => choice(
       'is', 'has', 'does', 'must',
@@ -50,5 +51,6 @@ module.exports = grammar({
       token.immediate('(')
     ),
     punctuation: $ => /[\.:,;/()]/,
+    comment: $ => /`.*/,
   }
 });

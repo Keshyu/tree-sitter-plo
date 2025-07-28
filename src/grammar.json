@@ -32,6 +32,10 @@
         {
           "type": "SYMBOL",
           "name": "punctuation"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "comment"
         }
       ]
     },
@@ -200,6 +204,10 @@
     "punctuation": {
       "type": "PATTERN",
       "value": "[\\.:,;/()]"
+    },
+    "comment": {
+      "type": "PATTERN",
+      "value": "`.*"
     }
   },
   "extras": [
