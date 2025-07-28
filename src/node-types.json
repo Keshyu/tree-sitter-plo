@@ -16,6 +16,22 @@
     }
   },
   {
+    "type": "call_multi",
+    "named": true,
+    "fields": {
+      "func": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "interpolation",
     "named": true,
     "fields": {},
@@ -25,6 +41,10 @@
       "types": [
         {
           "type": "call",
+          "named": true
+        },
+        {
+          "type": "call_multi",
           "named": true
         },
         {
@@ -66,6 +86,10 @@
       "types": [
         {
           "type": "call",
+          "named": true
+        },
+        {
+          "type": "call_multi",
           "named": true
         },
         {
@@ -116,6 +140,10 @@
   },
   {
     "type": ")",
+    "named": false
+  },
+  {
+    "type": ":",
     "named": false
   },
   {

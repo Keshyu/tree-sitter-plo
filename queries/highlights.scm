@@ -8,5 +8,8 @@
 (call
   func: (name) @function
   "(" @punctuation)
+(call_multi
+  func: (name) @function
+  ":" @punctuation)
 (punctuation) @punctuation
 (comment) @comment

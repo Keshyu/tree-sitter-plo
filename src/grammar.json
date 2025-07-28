@@ -31,6 +31,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "call_multi"
+        },
+        {
+          "type": "SYMBOL",
           "name": "punctuation"
         },
         {
@@ -197,6 +201,26 @@
           "content": {
             "type": "STRING",
             "value": "("
+          }
+        }
+      ]
+    },
+    "call_multi": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "func",
+          "content": {
+            "type": "SYMBOL",
+            "name": "name"
+          }
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": ":"
           }
         }
       ]

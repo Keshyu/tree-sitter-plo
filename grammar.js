@@ -19,6 +19,7 @@ module.exports = grammar({
       $.name,
       $.string,
       $.call,
+      $.call_multi,
       $.punctuation,
       $.comment,
     ),
@@ -44,11 +45,15 @@ module.exports = grammar({
     interpolation: $ => seq(
       '\\(',
       repeat1($._anything),
-      ')'
+      ')',
     ),
     call: $ => seq(
       field('func', $.name),
-      token.immediate('(')
+      token.immediate("("),
+    ),
+    call_multi: $ => seq(
+      field('func', $.name),
+      token.immediate(":"),
     ),
     punctuation: $ => /[\.:,;/()]/,
     comment: $ => /`.*/,
