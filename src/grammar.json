@@ -6,30 +6,34 @@
     "source_file": {
       "type": "REPEAT",
       "content": {
-        "type": "CHOICE",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "keyword"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "name"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "string"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "call"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "punctuation"
-          }
-        ]
+        "type": "SYMBOL",
+        "name": "_anything"
       }
+    },
+    "_anything": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "keyword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "name"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "call"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "punctuation"
+        }
+      ]
     },
     "keyword": {
       "type": "CHOICE",
@@ -49,6 +53,10 @@
         {
           "type": "STRING",
           "value": "must"
+        },
+        {
+          "type": "STRING",
+          "value": "be"
         },
         {
           "type": "STRING",
@@ -109,8 +117,57 @@
       "value": "\\w([\\w-]*\\w)?"
     },
     "string": {
-      "type": "PATTERN",
-      "value": "\"[^\\n\"]*\""
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "\""
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "[^\\n\"\\\\]+"
+              },
+              {
+                "type": "PATTERN",
+                "value": "\\\\[^(]"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "interpolation"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "\""
+        }
+      ]
+    },
+    "interpolation": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "\\("
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_anything"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
     },
     "call": {
       "type": "SEQ",

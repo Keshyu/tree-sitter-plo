@@ -16,6 +16,37 @@
     }
   },
   {
+    "type": "interpolation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "punctuation",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "keyword",
     "named": true,
     "fields": {}
@@ -53,7 +84,34 @@
     }
   },
   {
+    "type": "string",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "interpolation",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "\"",
+    "named": false
+  },
+  {
     "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": "\\(",
     "named": false
   },
   {
@@ -62,6 +120,10 @@
   },
   {
     "type": "at",
+    "named": false
+  },
+  {
+    "type": "be",
     "named": false
   },
   {
@@ -122,10 +184,6 @@
   },
   {
     "type": "punctuation",
-    "named": true
-  },
-  {
-    "type": "string",
     "named": true
   },
   {

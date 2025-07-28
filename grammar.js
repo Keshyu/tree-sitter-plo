@@ -13,16 +13,17 @@ module.exports = grammar({
   word: $ => $.name,
 
   rules: {
-    source_file: $ => repeat(choice(
+    source_file: $ => repeat($._anything),
+    _anything: $ => choice(
       $.keyword,
       $.name,
       $.string,
       $.call,
       $.punctuation,
-    )),
+    ),
     keyword: $ => choice(
       'is', 'has', 'does', 'must',
-      'do',
+      'be', 'do',
 
       'of', 'at', 'as', 'by',
       'from', 'to',
@@ -30,7 +31,20 @@ module.exports = grammar({
       'upto', 'downto',
     ),
     name: $ => /\w([\w-]*\w)?/,
-    string: $ => /"[^\n"]*"/,
+    string: $ => seq(
+      '"',
+      repeat(choice(
+        /[^\n"\\]+/,
+        /\\[^(]/,
+        $.interpolation,
+      )),
+      '"',
+    ),
+    interpolation: $ => seq(
+      '\\(',
+      repeat1($._anything),
+      ')'
+    ),
     call: $ => seq(
       field('func', $.name),
       token.immediate('(')
