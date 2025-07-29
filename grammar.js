@@ -46,7 +46,7 @@ module.exports = grammar({
     ),
     interpolation: $ => seq(
       '\\(',
-      repeat1($._anything),
+      repeat($._anything),
       ')',
     ),
     call: $ => seq(
