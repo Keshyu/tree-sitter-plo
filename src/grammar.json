@@ -72,6 +72,10 @@
         },
         {
           "type": "STRING",
+          "value": "for"
+        },
+        {
+          "type": "STRING",
           "value": "of"
         },
         {
@@ -85,6 +89,10 @@
         {
           "type": "STRING",
           "value": "by"
+        },
+        {
+          "type": "STRING",
+          "value": "with"
         },
         {
           "type": "STRING",

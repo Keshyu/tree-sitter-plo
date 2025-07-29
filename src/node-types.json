@@ -183,6 +183,10 @@
     "named": false
   },
   {
+    "type": "for",
+    "named": false
+  },
+  {
     "type": "from",
     "named": false
   },
@@ -240,6 +244,10 @@
   },
   {
     "type": "upto",
+    "named": false
+  },
+  {
+    "type": "with",
     "named": false
   }
 ]
