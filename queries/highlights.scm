@@ -1,5 +1,9 @@
 ((name) @type
- (#match? @type "^[A-Z]"))
+  (#match? @type "^[A-Z]"))
+(out_dependency
+  "&" @operator)
+(implicit_dependency
+  "*" @operator)
 (keyword) @keyword
 (string) @string
 (string_block) @string

@@ -32,6 +32,11 @@
     }
   },
   {
+    "type": "implicit_dependency",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "interpolation",
     "named": true,
     "fields": {},
@@ -52,11 +57,19 @@
           "named": true
         },
         {
+          "type": "implicit_dependency",
+          "named": true
+        },
+        {
           "type": "keyword",
           "named": true
         },
         {
           "type": "name",
+          "named": true
+        },
+        {
+          "type": "out_dependency",
           "named": true
         },
         {
@@ -76,6 +89,11 @@
   },
   {
     "type": "keyword",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "out_dependency",
     "named": true,
     "fields": {}
   },
@@ -101,11 +119,19 @@
           "named": true
         },
         {
+          "type": "implicit_dependency",
+          "named": true
+        },
+        {
           "type": "keyword",
           "named": true
         },
         {
           "type": "name",
+          "named": true
+        },
+        {
+          "type": "out_dependency",
           "named": true
         },
         {
@@ -148,11 +174,19 @@
     "named": false
   },
   {
+    "type": "&",
+    "named": false
+  },
+  {
     "type": "(",
     "named": false
   },
   {
     "type": ")",
+    "named": false
+  },
+  {
+    "type": "*",
     "named": false
   },
   {

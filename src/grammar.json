@@ -23,6 +23,14 @@
         },
         {
           "type": "SYMBOL",
+          "name": "out_dependency"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "implicit_dependency"
+        },
+        {
+          "type": "SYMBOL",
           "name": "string"
         },
         {
@@ -143,6 +151,38 @@
     "name": {
       "type": "PATTERN",
       "value": "\\w([\\w-]*\\w)?"
+    },
+    "out_dependency": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "&"
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "PATTERN",
+            "value": "\\w([\\w-]*\\w)?"
+          }
+        }
+      ]
+    },
+    "implicit_dependency": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "*"
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "PATTERN",
+            "value": "\\w([\\w-]*\\w)?"
+          }
+        }
+      ]
     },
     "string": {
       "type": "SEQ",

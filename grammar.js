@@ -17,6 +17,8 @@ module.exports = grammar({
     _anything: $ => choice(
       $.keyword,
       $.name,
+      $.out_dependency,
+      $.implicit_dependency,
       $.string,
       $.string_block,
       $.call,
@@ -36,6 +38,14 @@ module.exports = grammar({
       'in', 'out', 'into', 'outof',
     ),
     name: $ => /\w([\w-]*\w)?/,
+    out_dependency: $ => seq(
+      '&',
+      token.immediate(/\w([\w-]*\w)?/),
+    ),
+    implicit_dependency: $ => seq(
+      '*',
+      token.immediate(/\w([\w-]*\w)?/),
+    ),
     string: $ => seq(
       '"',
       repeat(choice(
