@@ -2,6 +2,7 @@
  (#match? @type "^[A-Z]"))
 (keyword) @keyword
 (string) @string
+(string_block) @string
 (interpolation
   "\\(" @punctuation
   ")" @punctuation) @embedded

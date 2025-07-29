@@ -18,6 +18,7 @@ module.exports = grammar({
       $.keyword,
       $.name,
       $.string,
+      $.string_block,
       $.call,
       $.call_multi,
       $.punctuation,
@@ -44,6 +45,7 @@ module.exports = grammar({
       )),
       '"',
     ),
+    string_block: $ => seq(repeat1(/-`.*/), '--'),
     interpolation: $ => seq(
       '\\(',
       repeat($._anything),

@@ -66,6 +66,10 @@
         {
           "type": "string",
           "named": true
+        },
+        {
+          "type": "string_block",
+          "named": true
         }
       ]
     }
@@ -111,6 +115,10 @@
         {
           "type": "string",
           "named": true
+        },
+        {
+          "type": "string_block",
+          "named": true
         }
       ]
     }
@@ -131,6 +139,11 @@
     }
   },
   {
+    "type": "string_block",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "\"",
     "named": false
   },
@@ -140,6 +153,10 @@
   },
   {
     "type": ")",
+    "named": false
+  },
+  {
+    "type": "--",
     "named": false
   },
   {
