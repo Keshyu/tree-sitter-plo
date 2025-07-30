@@ -1,3 +1,4 @@
+(name) @variable
 ((name) @type
   (#match? @type "^[A-Z]"))
 (out_dependency

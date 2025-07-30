@@ -84,10 +84,6 @@
         },
         {
           "type": "STRING",
-          "value": "for"
-        },
-        {
-          "type": "STRING",
           "value": "of"
         },
         {
@@ -108,11 +104,7 @@
         },
         {
           "type": "STRING",
-          "value": "on"
-        },
-        {
-          "type": "STRING",
-          "value": "off"
+          "value": "for"
         },
         {
           "type": "STRING",
@@ -145,6 +137,14 @@
         {
           "type": "STRING",
           "value": "outof"
+        },
+        {
+          "type": "STRING",
+          "value": "on"
+        },
+        {
+          "type": "STRING",
+          "value": "off"
         }
       ]
     },

@@ -30,12 +30,10 @@ module.exports = grammar({
       'is', 'has', 'does', 'must',
       'be', 'do',
 
-      'for',
-
-      'of', 'at', 'as', 'by', 'with',
-      'on', 'off',
+      'of', 'at', 'as', 'by', 'with', 'for',
       'from', 'to', 'upto', 'downto',
       'in', 'out', 'into', 'outof',
+      'on', 'off',
     ),
     name: $ => /\w([\w-]*\w)?/,
     out_dependency: $ => seq(
