@@ -84,6 +84,22 @@
         },
         {
           "type": "STRING",
+          "value": "but"
+        },
+        {
+          "type": "STRING",
+          "value": "also"
+        },
+        {
+          "type": "STRING",
+          "value": "and"
+        },
+        {
+          "type": "STRING",
+          "value": "or"
+        },
+        {
+          "type": "STRING",
           "value": "of"
         },
         {
