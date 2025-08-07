@@ -88,6 +88,10 @@
         },
         {
           "type": "STRING",
+          "value": "uses"
+        },
+        {
+          "type": "STRING",
           "value": "but"
         },
         {
