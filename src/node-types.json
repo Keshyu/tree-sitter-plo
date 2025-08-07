@@ -37,6 +37,21 @@
     "fields": {}
   },
   {
+    "type": "inside_out_call",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "interpolation",
     "named": true,
     "fields": {},
@@ -58,6 +73,10 @@
         },
         {
           "type": "implicit_dependency",
+          "named": true
+        },
+        {
+          "type": "inside_out_call",
           "named": true
         },
         {
@@ -120,6 +139,10 @@
         },
         {
           "type": "implicit_dependency",
+          "named": true
+        },
+        {
+          "type": "inside_out_call",
           "named": true
         },
         {
@@ -199,6 +222,10 @@
   },
   {
     "type": "\\(",
+    "named": false
+  },
+  {
+    "type": "^-",
     "named": false
   },
   {

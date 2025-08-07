@@ -1,3 +1,4 @@
+(keyword) @keyword
 (name) @variable
 ((name) @type
   (#match? @type "^[A-Z]"))
@@ -5,17 +6,19 @@
   "&" @operator)
 (implicit_dependency
   "*" @operator)
-(keyword) @keyword
-(string) @string
-(string_block) @string
-(interpolation
-  "\\(" @punctuation
-  ")" @punctuation) @embedded
 (call
   func: (name) @function
   "(" @punctuation)
 (call_multi
   func: (name) @function
   ":" @punctuation)
+(inside_out_call
+  "^-" @keyword
+  (name) @function)
+(string) @string
+(string_block) @string
+(interpolation
+  "\\(" @punctuation
+  ")" @punctuation) @embedded
 (punctuation) @punctuation
 (comment) @comment

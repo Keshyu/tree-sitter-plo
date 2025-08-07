@@ -15,6 +15,7 @@ module.exports = grammar({
   rules: {
     source_file: $ => repeat($._anything),
     _anything: $ => choice(
+      $._experimental,
       $.keyword,
       $.name,
       $.out_dependency,
@@ -46,6 +47,16 @@ module.exports = grammar({
       '*',
       token.immediate(/\w([\w-]*\w)?/),
     ),
+    call: $ => seq(
+      field('func', $.name),
+      token.immediate("("),
+    ),
+    call_multi: $ => seq(
+      field('func', $.name),
+      token.immediate(":"),
+    ),
+    _experimental: $ => choice($.inside_out_call),
+    inside_out_call: $ => seq('^-', $.name),
     string: $ => seq(
       '"',
       repeat(choice(
@@ -60,14 +71,6 @@ module.exports = grammar({
       '\\(',
       repeat($._anything),
       ')',
-    ),
-    call: $ => seq(
-      field('func', $.name),
-      token.immediate("("),
-    ),
-    call_multi: $ => seq(
-      field('func', $.name),
-      token.immediate(":"),
     ),
     punctuation: $ => /[\.:,;/()]/,
     comment: $ => /`.*/,
