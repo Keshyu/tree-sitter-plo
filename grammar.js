@@ -22,6 +22,7 @@ module.exports = grammar({
       $.implicit_dependency,
       $.string,
       $.string_block,
+      $.embed,
       $.call,
       $.call_multi,
       $.punctuation,
@@ -67,6 +68,12 @@ module.exports = grammar({
       '"',
     ),
     string_block: $ => seq(repeat1(/-`.*/), '--'),
+    embed: $ => seq(
+      '---',
+      alias(token.immediate(/\w+/), $.embed_lang),
+      alias(repeat(/[^\-]*|--|----+/), $.embed_body),
+      '---',
+    ),
     interpolation: $ => seq(
       '\\(',
       repeat($._anything),

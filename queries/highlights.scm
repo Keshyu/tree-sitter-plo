@@ -17,6 +17,10 @@
   (name) @function)
 (string) @string
 (string_block) @string
+(embed
+  "---" @string
+  (embed_lang) @string
+  "---" @string)
 (interpolation
   "\\(" @punctuation
   ")" @punctuation) @embedded
