@@ -12,8 +12,16 @@ module.exports = grammar({
 
   word: $ => $.name,
 
+  externals: $ => [
+    $.embed_begin,
+    $.embed_content,
+    $.embed_end,
+    $._dummy,
+    $._error_sentinel,
+  ],
+
   rules: {
-    source_file: $ => repeat($._anything),
+    source_file: $ => seq($._dummy, repeat($._anything)),
     _anything: $ => choice(
       $._experimental,
       $.keyword,
@@ -22,6 +30,7 @@ module.exports = grammar({
       $.implicit_dependency,
       $.string,
       $.string_block,
+      $.embed,
       $.call,
       $.call_multi,
       $.punctuation,
@@ -67,6 +76,13 @@ module.exports = grammar({
       '"',
     ),
     string_block: $ => seq(repeat1(/-`.*/), '--'),
+    embed: $ => seq(
+      $.embed_begin,
+      // alias(token.immediate(/\w+/), $.embed_lang),
+      // alias(/\w+/, $.embed_lang),
+      $.embed_content,
+      $.embed_end,
+    ),
     interpolation: $ => seq(
       '\\(',
       repeat($._anything),

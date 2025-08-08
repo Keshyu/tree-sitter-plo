@@ -32,6 +32,29 @@
     }
   },
   {
+    "type": "embed",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "embed_begin",
+          "named": true
+        },
+        {
+          "type": "embed_content",
+          "named": true
+        },
+        {
+          "type": "embed_end",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "implicit_dependency",
     "named": true,
     "fields": {}
@@ -72,6 +95,10 @@
           "named": true
         },
         {
+          "type": "embed",
+          "named": true
+        },
+        {
           "type": "implicit_dependency",
           "named": true
         },
@@ -97,10 +124,6 @@
         },
         {
           "type": "string",
-          "named": true
-        },
-        {
-          "type": "string_block",
           "named": true
         }
       ]
@@ -138,6 +161,10 @@
           "named": true
         },
         {
+          "type": "embed",
+          "named": true
+        },
+        {
           "type": "implicit_dependency",
           "named": true
         },
@@ -164,10 +191,6 @@
         {
           "type": "string",
           "named": true
-        },
-        {
-          "type": "string_block",
-          "named": true
         }
       ]
     }
@@ -188,11 +211,6 @@
     }
   },
   {
-    "type": "string_block",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "\"",
     "named": false
   },
@@ -210,10 +228,6 @@
   },
   {
     "type": "*",
-    "named": false
-  },
-  {
-    "type": "--",
     "named": false
   },
   {
@@ -271,6 +285,18 @@
   {
     "type": "downto",
     "named": false
+  },
+  {
+    "type": "embed_begin",
+    "named": true
+  },
+  {
+    "type": "embed_content",
+    "named": true
+  },
+  {
+    "type": "embed_end",
+    "named": true
   },
   {
     "type": "for",

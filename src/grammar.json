@@ -4,11 +4,20 @@
   "word": "name",
   "rules": {
     "source_file": {
-      "type": "REPEAT",
-      "content": {
-        "type": "SYMBOL",
-        "name": "_anything"
-      }
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_dummy"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_anything"
+          }
+        }
+      ]
     },
     "_anything": {
       "type": "CHOICE",
@@ -39,7 +48,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "string_block"
+          "name": "embed"
         },
         {
           "type": "SYMBOL",
@@ -319,6 +328,23 @@
         }
       ]
     },
+    "embed": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "embed_begin"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "embed_content"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "embed_end"
+        }
+      ]
+    },
     "interpolation": {
       "type": "SEQ",
       "members": [
@@ -356,7 +382,28 @@
   ],
   "conflicts": [],
   "precedences": [],
-  "externals": [],
+  "externals": [
+    {
+      "type": "SYMBOL",
+      "name": "embed_begin"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "embed_content"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "embed_end"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "_dummy"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "_error_sentinel"
+    }
+  ],
   "inline": [],
   "supertypes": [],
   "reserved": {}

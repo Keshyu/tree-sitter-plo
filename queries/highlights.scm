@@ -17,6 +17,11 @@
   (name) @function)
 (string) @string
 (string_block) @string
+(embed
+  (embed_begin) @string
+  (embed_lang) @injection.language
+  (embed_content) @injection.content
+  (embed_end) @string)
 (interpolation
   "\\(" @punctuation
   ")" @punctuation) @embedded
