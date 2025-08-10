@@ -173,6 +173,14 @@
         {
           "type": "STRING",
           "value": "off"
+        },
+        {
+          "type": "STRING",
+          "value": "->"
+        },
+        {
+          "type": "STRING",
+          "value": "<-"
         }
       ]
     },

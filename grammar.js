@@ -38,6 +38,8 @@ module.exports = grammar({
       'from', 'to', 'upto', 'downto',
       'in', 'out', 'into', 'outof',
       'on', 'off',
+
+      '->', '<-',
     ),
     name: $ => /\w([\w-]*\w)?/,
     out_dependency: $ => seq(
