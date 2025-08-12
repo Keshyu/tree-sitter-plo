@@ -32,7 +32,7 @@ module.exports = grammar({
       'is', 'has', 'does', 'must',
       'be', 'do',
 
-      'uses', 'but', 'also', 'and', 'or',
+      'but', 'where', 'also', 'and', 'or',
 
       'of', 'at', 'as', 'by', 'with', 'for',
       'from', 'to', 'upto', 'downto',
