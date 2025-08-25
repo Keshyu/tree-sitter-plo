@@ -23,6 +23,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "operator"
+        },
+        {
+          "type": "SYMBOL",
           "name": "name"
         },
         {
@@ -183,6 +187,10 @@
           "value": "<-"
         }
       ]
+    },
+    "operator": {
+      "type": "PATTERN",
+      "value": "[-+=|/*&^%$#@!~<>\\\\]+"
     },
     "name": {
       "type": "PATTERN",

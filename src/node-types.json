@@ -116,6 +116,10 @@
           "named": true
         },
         {
+          "type": "operator",
+          "named": true
+        },
+        {
           "type": "out_dependency",
           "named": true
         },
@@ -183,6 +187,10 @@
         },
         {
           "type": "name",
+          "named": true
+        },
+        {
+          "type": "operator",
           "named": true
         },
         {
@@ -363,6 +371,10 @@
   {
     "type": "on",
     "named": false
+  },
+  {
+    "type": "operator",
+    "named": true
   },
   {
     "type": "or",

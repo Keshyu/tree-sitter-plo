@@ -1,4 +1,5 @@
 (keyword) @keyword
+(operator) @keyword
 (name) @variable
 ((name) @type
   (#match? @type "^[A-Z]"))

@@ -17,6 +17,7 @@ module.exports = grammar({
     _anything: $ => choice(
       $._experimental,
       $.keyword,
+      $.operator,
       $.name,
       $.out_dependency,
       $.implicit_dependency,
@@ -41,6 +42,7 @@ module.exports = grammar({
 
       '->', '<-',
     ),
+    operator: $ => /[-+=|/*&^%$#@!~<>\\]+/,
     name: $ => /\w([\w-]*\w)?/,
     out_dependency: $ => seq(
       '&',
