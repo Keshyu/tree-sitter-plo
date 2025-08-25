@@ -108,6 +108,10 @@
         },
         {
           "type": "STRING",
+          "value": "which"
+        },
+        {
+          "type": "STRING",
           "value": "and"
         },
         {
