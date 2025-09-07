@@ -30,7 +30,7 @@ module.exports = grammar({
       $.comment,
     ),
     keyword: $ => choice(
-      'is', 'has', 'does', 'must',
+      'is', 'has', 'does', 'io', 'must',
       'be', 'do',
 
       'but', 'where', 'also', 'which',
