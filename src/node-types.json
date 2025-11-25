@@ -1,38 +1,6 @@
 [
   {
-    "type": "call",
-    "named": true,
-    "fields": {
-      "func": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "name",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "call_multi",
-    "named": true,
-    "fields": {
-      "func": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "name",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "embed",
+    "type": "assignment",
     "named": true,
     "fields": {},
     "children": {
@@ -40,28 +8,37 @@
       "required": true,
       "types": [
         {
-          "type": "embed_body",
+          "type": "block",
           "named": true
         },
         {
-          "type": "embed_lang",
+          "type": "name",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "embed_body",
+    "type": "block",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        }
+      ]
+    }
   },
   {
-    "type": "implicit_dependency",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "inside_out_call",
+    "type": "call",
     "named": true,
     "fields": {},
     "children": {
@@ -76,79 +53,6 @@
     }
   },
   {
-    "type": "interpolation",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "call",
-          "named": true
-        },
-        {
-          "type": "call_multi",
-          "named": true
-        },
-        {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "embed",
-          "named": true
-        },
-        {
-          "type": "implicit_dependency",
-          "named": true
-        },
-        {
-          "type": "inside_out_call",
-          "named": true
-        },
-        {
-          "type": "keyword",
-          "named": true
-        },
-        {
-          "type": "name",
-          "named": true
-        },
-        {
-          "type": "operator",
-          "named": true
-        },
-        {
-          "type": "out_dependency",
-          "named": true
-        },
-        {
-          "type": "punctuation",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        },
-        {
-          "type": "string_block",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "keyword",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "out_dependency",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "source_file",
     "named": true,
     "root": true,
@@ -158,198 +62,27 @@
       "required": false,
       "types": [
         {
+          "type": "assignment",
+          "named": true
+        },
+        {
           "type": "call",
           "named": true
-        },
-        {
-          "type": "call_multi",
-          "named": true
-        },
-        {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "embed",
-          "named": true
-        },
-        {
-          "type": "implicit_dependency",
-          "named": true
-        },
-        {
-          "type": "inside_out_call",
-          "named": true
-        },
-        {
-          "type": "keyword",
-          "named": true
-        },
-        {
-          "type": "name",
-          "named": true
-        },
-        {
-          "type": "operator",
-          "named": true
-        },
-        {
-          "type": "out_dependency",
-          "named": true
-        },
-        {
-          "type": "punctuation",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        },
-        {
-          "type": "string_block",
-          "named": true
         }
       ]
     }
   },
   {
-    "type": "string",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "interpolation",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "string_block",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "\"",
-    "named": false
-  },
-  {
-    "type": "&",
-    "named": false
-  },
-  {
-    "type": "(",
-    "named": false
-  },
-  {
-    "type": ")",
-    "named": false
-  },
-  {
-    "type": "*",
-    "named": false
-  },
-  {
-    "type": "--",
-    "named": false
-  },
-  {
-    "type": "---",
-    "named": false
-  },
-  {
-    "type": "->",
-    "named": false
-  },
-  {
-    "type": ":",
-    "named": false
-  },
-  {
-    "type": "<-",
-    "named": false
-  },
-  {
-    "type": "\\(",
-    "named": false
-  },
-  {
-    "type": "^-",
-    "named": false
-  },
-  {
-    "type": "also",
-    "named": false
-  },
-  {
-    "type": "and",
-    "named": false
-  },
-  {
-    "type": "as",
-    "named": false
-  },
-  {
-    "type": "at",
-    "named": false
-  },
-  {
-    "type": "be",
-    "named": false
-  },
-  {
-    "type": "but",
-    "named": false
-  },
-  {
-    "type": "by",
+    "type": "!",
     "named": false
   },
   {
     "type": "comment",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "do",
-    "named": false
-  },
-  {
-    "type": "does",
-    "named": false
-  },
-  {
-    "type": "downto",
-    "named": false
-  },
-  {
-    "type": "embed_lang",
-    "named": true
-  },
-  {
-    "type": "for",
-    "named": false
-  },
-  {
-    "type": "from",
-    "named": false
-  },
-  {
-    "type": "has",
-    "named": false
-  },
-  {
-    "type": "in",
-    "named": false
-  },
-  {
-    "type": "into",
-    "named": false
-  },
-  {
-    "type": "io",
     "named": false
   },
   {
@@ -357,63 +90,7 @@
     "named": false
   },
   {
-    "type": "must",
-    "named": false
-  },
-  {
     "type": "name",
     "named": true
-  },
-  {
-    "type": "of",
-    "named": false
-  },
-  {
-    "type": "off",
-    "named": false
-  },
-  {
-    "type": "on",
-    "named": false
-  },
-  {
-    "type": "operator",
-    "named": true
-  },
-  {
-    "type": "or",
-    "named": false
-  },
-  {
-    "type": "out",
-    "named": false
-  },
-  {
-    "type": "outof",
-    "named": false
-  },
-  {
-    "type": "punctuation",
-    "named": true
-  },
-  {
-    "type": "to",
-    "named": false
-  },
-  {
-    "type": "upto",
-    "named": false
-  },
-  {
-    "type": "where",
-    "named": false
-  },
-  {
-    "type": "which",
-    "named": false
-  },
-  {
-    "type": "with",
-    "named": false
   }
 ]

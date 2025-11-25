@@ -1,0 +1,94 @@
+===
+Everything else
+===
+
+`a : number, b : number, return : void
+print-sum is do
+   lhs is a
+   rhs is b
+   add!
+   msg is return `a shortcut
+   print!
+
+a is 2
+b is 2
+print-sum!
+
+b is 18
+print-sum!
+
+---
+
+(source_file
+  (comment)
+  (assignment
+    (name)
+    (block
+      (assignment
+        (name)
+        (name))
+      (assignment
+        (name)
+        (name))
+      (call
+        (name))
+      (assignment
+        (name)
+        (name))
+      (comment)
+      (call
+        (name))))
+  (assignment
+    (name)
+    (name))
+  (assignment
+    (name)
+    (name))
+  (call
+    (name))
+  (assignment
+    (name)
+    (name))
+  (call
+    (name)))
+
+===
+Indentation
+===
+
+print-sum is do
+   lhs is a
+   print-sum is do
+      lhs is a
+      rhs is b
+   rhs is b
+rhs is b
+rhs is b
+
+---
+
+(source_file
+  (assignment
+    (name)
+    (block
+      (assignment
+        (name)
+        (name))
+      (assignment
+        (name)
+        (block
+          (assignment
+            (name)
+            (name))
+          (assignment
+            (name)
+            (name))))
+      (assignment
+        (name)
+        (name))))
+  (assignment
+    (name)
+    (name))
+  (assignment
+    (name)
+    (name)))

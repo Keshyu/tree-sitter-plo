@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-plo",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Plo grammar for tree-sitter",
   "repository": "https://github.com/keshyu/tree-sitter-plo",
   "license": "GPLv3",
