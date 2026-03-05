@@ -1,0 +1,16 @@
+===
+Assignment
+===
+
+hp = 20
+area = "snowtown"
+
+---
+
+===
+Assignment inside call
+===
+
+set-size(side = 40, width(side), heigth(side))    
+
+---
