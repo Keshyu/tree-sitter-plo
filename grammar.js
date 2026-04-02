@@ -36,13 +36,23 @@ module.exports = grammar({
       $.paren,
       $.word,
     )),
-    space_phrase: $ => repeat2(choice(
-      $.block_phrase,
-      $.dot_phrase,
-      $.paren_phrase,
-      $.paren,
-      $.word,
-    )),
+    space_phrase: $ => seq(
+      choice(
+        $.block_phrase,
+        $.dot_phrase,
+        $.paren_phrase,
+        $.paren,
+        $.word,
+      ),
+      choice(
+        $.space_phrase,
+        $.block_phrase,
+        $.dot_phrase,
+        $.paren_phrase,
+        $.paren,
+        $.word,
+      ),
+    ),
     block_phrase: $ => seq(
       choice(
         $.dot_phrase,

@@ -1,10 +1,10 @@
 
 
-let, struct(a, b)
+let(book) struct
    title; author; year
-      meta
+   meta
    beta
 
-print message
+pos x 10
 
 

@@ -191,32 +191,33 @@
           ]
         },
         {
-          "type": "REPEAT1",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "block_phrase"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "dot_phrase"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "paren_phrase"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "paren"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "word"
-              }
-            ]
-          }
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "space_phrase"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "block_phrase"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "dot_phrase"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "paren_phrase"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "paren"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "word"
+            }
+          ]
         }
       ]
     },
@@ -354,14 +355,14 @@
           "type": "ALIAS",
           "content": {
             "type": "SYMBOL",
-            "name": "_paren_phrase_paren"
+            "name": "_glued_paren"
           },
           "named": true,
           "value": "paren"
         }
       ]
     },
-    "_paren_phrase_paren": {
+    "_glued_paren": {
       "type": "SEQ",
       "members": [
         {

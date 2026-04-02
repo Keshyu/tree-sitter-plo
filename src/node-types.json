@@ -232,6 +232,10 @@
           "named": true
         },
         {
+          "type": "space_phrase",
+          "named": true
+        },
+        {
           "type": "word",
           "named": true
         }
