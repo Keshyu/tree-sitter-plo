@@ -1,67 +1,260 @@
 {
   "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
   "name": "plo",
-  "word": "name",
+  "word": "word",
   "rules": {
     "source_file": {
-      "type": "REPEAT",
-      "content": {
-        "type": "SYMBOL",
-        "name": "_statement"
-      }
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "phrase"
+                  },
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "_linebreak"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": ";"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "phrase"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_linebreak"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BLANK"
+        }
+      ]
     },
-    "_statement": {
+    "phrase": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "assignment"
+          "name": "comma_phrase"
         },
         {
           "type": "SYMBOL",
-          "name": "call"
+          "name": "space_phrase"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "block_phrase"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dot_phrase"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "paren_phrase"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "paren"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "word"
         }
       ]
     },
-    "assignment": {
+    "comma_phrase": {
       "type": "SEQ",
       "members": [
-        {
-          "type": "SYMBOL",
-          "name": "name"
-        },
-        {
-          "type": "STRING",
-          "value": "is"
-        },
         {
           "type": "CHOICE",
           "members": [
             {
               "type": "SYMBOL",
-              "name": "name"
+              "name": "space_phrase"
             },
             {
               "type": "SYMBOL",
-              "name": "block"
+              "name": "block_phrase"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "dot_phrase"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "paren_phrase"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "paren"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "word"
             }
           ]
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "space_phrase"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "block_phrase"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "dot_phrase"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "paren_phrase"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "paren"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "word"
+                  }
+                ]
+              }
+            ]
+          }
         }
       ]
     },
-    "call": {
+    "space_phrase": {
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "name"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "block_phrase"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "dot_phrase"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "paren_phrase"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "paren"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "word"
+            }
+          ]
         },
         {
-          "type": "IMMEDIATE_TOKEN",
+          "type": "REPEAT1",
           "content": {
-            "type": "STRING",
-            "value": "!"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "block_phrase"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "dot_phrase"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "paren_phrase"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "paren"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "word"
+              }
+            ]
           }
+        }
+      ]
+    },
+    "block_phrase": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "dot_phrase"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "paren_phrase"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "paren"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "word"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_indent"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "block"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_dedent"
         }
       ]
     },
@@ -69,57 +262,333 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "do"
+          "type": "SYMBOL",
+          "name": "phrase"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "_linebreak"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": ";"
+                  }
+                ]
+              },
+              {
+                "type": "SYMBOL",
+                "name": "phrase"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "dot_phrase": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "paren_phrase"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "paren"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "word"
+            }
+          ]
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "."
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "paren_phrase"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "paren"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "word"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "paren_phrase": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "word"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_paren_phrase_paren"
+          },
+          "named": true,
+          "value": "paren"
+        }
+      ]
+    },
+    "_paren_phrase_paren": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "("
+          }
         },
         {
           "type": "CHOICE",
           "members": [
             {
               "type": "SYMBOL",
-              "name": "_statement"
+              "name": "_paren_content"
             },
             {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "_indent"
-                },
-                {
-                  "type": "REPEAT1",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "_statement"
-                  }
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_dedent"
-                }
-              ]
+              "type": "BLANK"
             }
           ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
         }
       ]
     },
-    "name": {
-      "type": "PATTERN",
-      "value": "[\\w\\-]+|\"([^\"]|\\\\\")*\""
+    "paren": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_paren_content"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
     },
-    "comment": {
+    "_paren_content": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_comma_phrase_inline"
+          },
+          "named": true,
+          "value": "comma_phrase"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_space_phrase_inline"
+          },
+          "named": true,
+          "value": "space_phrase"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dot_phrase"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "paren_phrase"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "paren"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "word"
+        }
+      ]
+    },
+    "_comma_phrase_inline": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_space_phrase_inline"
+              },
+              "named": true,
+              "value": "space_phrase"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "dot_phrase"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "paren_phrase"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "paren"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "word"
+            }
+          ]
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "_space_phrase_inline"
+                    },
+                    "named": true,
+                    "value": "space_phrase"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "dot_phrase"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "paren_phrase"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "paren"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "word"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "_space_phrase_inline": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "dot_phrase"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "paren_phrase"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "paren"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "word"
+            }
+          ]
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "dot_phrase"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "paren_phrase"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "paren"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "word"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "word": {
       "type": "PATTERN",
-      "value": "`.*"
+      "value": "\\w+"
     }
   },
   "extras": [
     {
       "type": "PATTERN",
       "value": "\\s"
-    },
-    {
-      "type": "SYMBOL",
-      "name": "comment"
     }
   ],
   "conflicts": [],
@@ -135,7 +604,7 @@
     },
     {
       "type": "SYMBOL",
-      "name": "comment"
+      "name": "_linebreak"
     },
     {
       "type": "SYMBOL",
@@ -143,6 +612,8 @@
     }
   ],
   "inline": [],
-  "supertypes": [],
+  "supertypes": [
+    "phrase"
+  ],
   "reserved": {}
 }

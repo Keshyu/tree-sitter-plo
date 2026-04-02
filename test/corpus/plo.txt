@@ -1,94 +1,24 @@
 ===
-Everything else
+Something
 ===
 
-`a : number, b : number, return : void
-print-sum is do
-   lhs is a
-   rhs is b
-   add!
-   msg is return `a shortcut
-   print!
-
-a is 2
-b is 2
-print-sum!
-
-b is 18
-print-sum!
+foo bar baz
+zoom, boom.jar
+a b.c.d; e
+xy(40)
+poop (more)
 
 ---
 
-(source_file
-  (comment)
-  (assignment
-    (name)
-    (block
-      (assignment
-        (name)
-        (name))
-      (assignment
-        (name)
-        (name))
-      (call
-        (name))
-      (assignment
-        (name)
-        (name))
-      (comment)
-      (call
-        (name))))
-  (assignment
-    (name)
-    (name))
-  (assignment
-    (name)
-    (name))
-  (call
-    (name))
-  (assignment
-    (name)
-    (name))
-  (call
-    (name)))
-
 ===
-Indentation
+Blocks
 ===
 
-print-sum is do
-   lhs is a
-   print-sum is do
-      lhs is a
-      rhs is b
-   rhs is b
-rhs is b
-rhs is b
+let; struct(a)
+   title; author; year
+     meta
+   beta
+
+print message
 
 ---
-
-(source_file
-  (assignment
-    (name)
-    (block
-      (assignment
-        (name)
-        (name))
-      (assignment
-        (name)
-        (block
-          (assignment
-            (name)
-            (name))
-          (assignment
-            (name)
-            (name))))
-      (assignment
-        (name)
-        (name))))
-  (assignment
-    (name)
-    (name))
-  (assignment
-    (name)
-    (name)))

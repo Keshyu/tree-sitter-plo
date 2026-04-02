@@ -10,31 +10,103 @@
 module.exports = grammar({
   name: "plo",
 
-  word: $ => $.name,
-  externals: $ => [$._indent, $._dedent, $.comment, $.error_sentinel],
-  extras: $ => [/\s/, $.comment],
+  word: $ => $.word,
+  externals: $ => [$._indent, $._dedent, $._linebreak, $.error_sentinel],
+  supertypes: $ => [$.phrase],
 
   rules: {
-    source_file: $ => repeat($._statement),
-    _statement: $ => choice(
-      $.assignment,
-      $.call,
-    ),
-    assignment: $ => seq($.name, 'is', choice($.name, $.block)),
-    call: $ => seq($.name, token.immediate('!')),
-    block: $ => seq('do', choice(
-      $._statement,
-      seq($._indent, repeat1($._statement), $._dedent),
+    source_file: $ => optional(seq(
+      repeat(seq($.phrase, choice($._linebreak, ';'))),
+      seq($.phrase, $._linebreak),
     )),
-    name: $ => /[\w\-]+|"([^"]|\\")*"/,
-    comment: $ => /`.*/,
+    phrase: $ => choice(
+      $.comma_phrase,
+      $.space_phrase,
+      $.block_phrase,
+      $.dot_phrase,
+      $.paren_phrase,
+      $.paren,
+      $.word,
+    ),
+    comma_phrase: $ => sep2(',', choice(
+      $.space_phrase,
+      $.block_phrase,
+      $.dot_phrase,
+      $.paren_phrase,
+      $.paren,
+      $.word,
+    )),
+    space_phrase: $ => repeat2(choice(
+      $.block_phrase,
+      $.dot_phrase,
+      $.paren_phrase,
+      $.paren,
+      $.word,
+    )),
+    block_phrase: $ => seq(
+      choice(
+        $.dot_phrase,
+        $.paren_phrase,
+        $.paren,
+        $.word,
+      ),
+      $._indent,
+      $.block,
+      $._dedent,
+    ),
+    block: $ => sep1(choice($._linebreak, ';'), $.phrase),
+    dot_phrase: $ => sep2('.', choice(
+      $.paren_phrase,
+      $.paren,
+      $.word,
+    )),
+    paren_phrase: $ => seq(
+      $.word,
+      alias($._paren_phrase_paren, $.paren),
+    ),
+    _paren_phrase_paren: $ => seq(
+      token.immediate('('),
+      optional($._paren_content),
+      ')',
+    ),
+    paren: $ => seq('(', optional($._paren_content), ')'),
+    _paren_content: $ => choice(
+      alias($._comma_phrase_inline, $.comma_phrase),
+      alias($._space_phrase_inline, $.space_phrase),
+      $.dot_phrase,
+      $.paren_phrase,
+      $.paren,
+      $.word,
+    ),
+    _comma_phrase_inline: $ => sep2(',', choice(
+      alias($._space_phrase_inline, $.space_phrase),
+      $.dot_phrase,
+      $.paren_phrase,
+      $.paren,
+      $.word,
+    )),
+    _space_phrase_inline: $ => repeat2(choice(
+      $.dot_phrase,
+      $.paren_phrase,
+      $.paren,
+      $.word,
+    )),
+    word: $ => /\w+/,
   }
 });
 
-function sep(rule, separator) {
-  return optional(sep1(rule, separator));
+function sep2(separator, rule) {
+  return seq(rule, repeat1(seq(separator, rule)));
 }
 
-function sep1(rule, separator) {
+function sep1(separator, rule) {
   return seq(rule, repeat(seq(separator, rule)));
+}
+
+function sep(separator, rule) {
+  return optional(sep1(separator, rule));
+}
+
+function repeat2(rule) {
+  return seq(rule, repeat1(rule));
 }

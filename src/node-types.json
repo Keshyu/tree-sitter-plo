@@ -1,6 +1,55 @@
 [
   {
-    "type": "assignment",
+    "type": "phrase",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "block_phrase",
+        "named": true
+      },
+      {
+        "type": "comma_phrase",
+        "named": true
+      },
+      {
+        "type": "dot_phrase",
+        "named": true
+      },
+      {
+        "type": "paren",
+        "named": true
+      },
+      {
+        "type": "paren_phrase",
+        "named": true
+      },
+      {
+        "type": "space_phrase",
+        "named": true
+      },
+      {
+        "type": "word",
+        "named": true
+      }
+    ]
+  },
+  {
+    "type": "block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "phrase",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "block_phrase",
     "named": true,
     "fields": {},
     "children": {
@@ -12,14 +61,26 @@
           "named": true
         },
         {
-          "type": "name",
+          "type": "dot_phrase",
+          "named": true
+        },
+        {
+          "type": "paren",
+          "named": true
+        },
+        {
+          "type": "paren_phrase",
+          "named": true
+        },
+        {
+          "type": "word",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "block",
+    "type": "comma_phrase",
     "named": true,
     "fields": {},
     "children": {
@@ -27,26 +88,104 @@
       "required": true,
       "types": [
         {
-          "type": "assignment",
+          "type": "block_phrase",
           "named": true
         },
         {
-          "type": "call",
+          "type": "dot_phrase",
+          "named": true
+        },
+        {
+          "type": "paren",
+          "named": true
+        },
+        {
+          "type": "paren_phrase",
+          "named": true
+        },
+        {
+          "type": "space_phrase",
+          "named": true
+        },
+        {
+          "type": "word",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "call",
+    "type": "dot_phrase",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "paren",
+          "named": true
+        },
+        {
+          "type": "paren_phrase",
+          "named": true
+        },
+        {
+          "type": "word",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "paren",
     "named": true,
     "fields": {},
     "children": {
       "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comma_phrase",
+          "named": true
+        },
+        {
+          "type": "dot_phrase",
+          "named": true
+        },
+        {
+          "type": "paren",
+          "named": true
+        },
+        {
+          "type": "paren_phrase",
+          "named": true
+        },
+        {
+          "type": "space_phrase",
+          "named": true
+        },
+        {
+          "type": "word",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "paren_phrase",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "name",
+          "type": "paren",
+          "named": true
+        },
+        {
+          "type": "word",
           "named": true
         }
       ]
@@ -62,35 +201,65 @@
       "required": false,
       "types": [
         {
-          "type": "assignment",
-          "named": true
-        },
-        {
-          "type": "call",
+          "type": "phrase",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "!",
-    "named": false
-  },
-  {
-    "type": "comment",
+    "type": "space_phrase",
     "named": true,
-    "extra": true
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "block_phrase",
+          "named": true
+        },
+        {
+          "type": "dot_phrase",
+          "named": true
+        },
+        {
+          "type": "paren",
+          "named": true
+        },
+        {
+          "type": "paren_phrase",
+          "named": true
+        },
+        {
+          "type": "word",
+          "named": true
+        }
+      ]
+    }
   },
   {
-    "type": "do",
+    "type": "(",
     "named": false
   },
   {
-    "type": "is",
+    "type": ")",
     "named": false
   },
   {
-    "type": "name",
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": ".",
+    "named": false
+  },
+  {
+    "type": ";",
+    "named": false
+  },
+  {
+    "type": "word",
     "named": true
   }
 ]
