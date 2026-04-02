@@ -62,9 +62,9 @@ module.exports = grammar({
     )),
     paren_phrase: $ => seq(
       $.word,
-      alias($._paren_phrase_paren, $.paren),
+      alias($._glued_paren, $.paren),
     ),
-    _paren_phrase_paren: $ => seq(
+    _glued_paren: $ => seq(
       token.immediate('('),
       optional($._paren_content),
       ')',
