@@ -81,21 +81,21 @@ module.exports = grammar({
     ),
     paren: $ => seq('(', optional($._paren_content), ')'),
     _paren_content: $ => choice(
-      alias($._comma_phrase_inline, $.comma_phrase),
-      alias($._space_phrase_inline, $.space_phrase),
+      alias($._inline_comma_phrase, $.comma_phrase),
+      alias($._inline_space_phrase, $.space_phrase),
       $.dot_phrase,
       $.paren_phrase,
       $.paren,
       $.word,
     ),
-    _comma_phrase_inline: $ => sep2(',', choice(
-      alias($._space_phrase_inline, $.space_phrase),
+    _inline_comma_phrase: $ => sep2(',', choice(
+      alias($._inline_space_phrase, $.space_phrase),
       $.dot_phrase,
       $.paren_phrase,
       $.paren,
       $.word,
     )),
-    _space_phrase_inline: $ => repeat2(choice(
+    _inline_space_phrase: $ => repeat2(choice(
       $.dot_phrase,
       $.paren_phrase,
       $.paren,
