@@ -65,11 +65,20 @@ module.exports = grammar({
       $._dedent,
     ),
     block: $ => sep1(choice($._linebreak, ';'), $.phrase),
-    dot_phrase: $ => sep2('.', choice(
-      $.paren_phrase,
-      $.paren,
-      $.word,
-    )),
+    dot_phrase: $ => seq(
+      choice(
+        $.dot_phrase,
+        $.paren_phrase,
+        $.paren,
+        $.word,
+      ),
+      '.',
+      choice(
+        $.paren_phrase,
+        $.paren,
+        $.word,
+      ),
+    ),
     paren_phrase: $ => seq(
       $.word,
       alias($._glued_paren, $.paren),

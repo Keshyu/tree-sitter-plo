@@ -123,6 +123,10 @@
       "required": true,
       "types": [
         {
+          "type": "dot_phrase",
+          "named": true
+        },
+        {
           "type": "paren",
           "named": true
         },

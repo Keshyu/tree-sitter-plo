@@ -9,4 +9,4 @@ pipeline(from string, to tree word)
    guard block.being list either(line, (line, block))
    _
 
-(a b c)
+a.b.c
