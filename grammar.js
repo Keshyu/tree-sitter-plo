@@ -95,12 +95,21 @@ module.exports = grammar({
       $.paren,
       $.word,
     )),
-    _inline_space_phrase: $ => repeat2(choice(
-      $.dot_phrase,
-      $.paren_phrase,
-      $.paren,
-      $.word,
-    )),
+    _inline_space_phrase: $ => seq(
+      choice(
+        $.dot_phrase,
+        $.paren_phrase,
+        $.paren,
+        $.word,
+      ),
+      choice(
+        $.space_phrase,
+        $.dot_phrase,
+        $.paren_phrase,
+        $.paren,
+        $.word,
+      ),
+    ),
     word: $ => /\w+/,
   }
 });

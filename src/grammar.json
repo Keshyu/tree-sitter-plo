@@ -556,28 +556,29 @@
           ]
         },
         {
-          "type": "REPEAT1",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "dot_phrase"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "paren_phrase"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "paren"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "word"
-              }
-            ]
-          }
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "space_phrase"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "dot_phrase"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "paren_phrase"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "paren"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "word"
+            }
+          ]
         }
       ]
     },
