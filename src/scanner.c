@@ -1,4 +1,4 @@
-#include "tree_sitter/array.h"
+#include "tree_sitter/alloc.h"
 #include "tree_sitter/parser.h"
 
 enum TokenType {
@@ -94,12 +94,12 @@ void tree_sitter_plo_external_scanner_deserialize(
 }
 
 void *tree_sitter_plo_external_scanner_create() {
-    Scanner *scanner = calloc(1, sizeof(Scanner));
+    Scanner *scanner = ts_calloc(1, sizeof(Scanner));
     scanner->indent = 0;
     return scanner;
 }
 
 void tree_sitter_plo_external_scanner_destroy(void *payload) {
     Scanner *scanner = (Scanner *)payload;
-    free(scanner);
+    ts_free(scanner);
 }
