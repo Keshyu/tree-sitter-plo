@@ -1,3 +1,6 @@
+# Sample source file
+sample.plo
+
 # Rust artifacts
 target/
 Cargo.lock
