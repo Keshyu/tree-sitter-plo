@@ -74,7 +74,7 @@ unsigned tree_sitter_plo_external_scanner_serialize(
     char *buffer
 ) {
     Scanner *scanner = (Scanner *)payload;
-    size_t size = 0;
+    unsigned size = 0;
     buffer[size++] = (char)(scanner->indent & 0xFF);
     buffer[size++] = (char)((scanner->indent >> 8) & 0xFF);
     return size;
